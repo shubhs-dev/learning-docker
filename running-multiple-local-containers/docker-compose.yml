@@ -1,0 +1,13 @@
+version: "3"
+services:
+  redis-server:
+    # Use redis image for this service
+    image: "redis"
+  node-app:
+    # always restart container
+    restart: on-failure
+    # Build this service using docker file
+    build: .
+    ports:
+      # Port on machine:Port inside the container
+      - "4001:8081"
